@@ -47,7 +47,7 @@ Verifique o servidor pelo endpoint técnico `GET http://127.0.0.1:3000/health`, 
 Invoke-RestMethod http://127.0.0.1:3000/health
 ```
 
-`better-sqlite3` é uma dependência nativa exclusiva do servidor. A instalação precisa de rede para baixar os binários compatíveis. Se não houver um binário para a plataforma, será necessário o ambiente de compilação exigido pelo pacote. O app Electron não importa nem reconstrói esse módulo.
+`better-sqlite3` é uma dependência nativa exclusiva do servidor. A versão `12.11.1` está fixada porque fornece binário pré-compilado para Node 24 no Windows; a linha 13 tentou executar `node-gyp` durante a conferência desta base. A instalação precisa de rede para baixar os binários compatíveis. Em outra plataforma sem binário, será necessário o ambiente de compilação exigido pelo pacote. O app Electron não importa nem reconstrói esse módulo.
 
 ## Estrutura
 
