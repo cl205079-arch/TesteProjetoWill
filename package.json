@@ -1,20 +1,26 @@
 {
   "name": "biblioteca-comunitaria",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
-  "workspaces": ["shared", "server", "app"],
-  "engines": { "node": ">=24 <25", "npm": ">=11" },
+  "description": "Projeto Final de DAD - Biblioteca Comunitaria",
+  "workspaces": [
+    "app",
+    "server",
+    "shared"
+  ],
   "scripts": {
-    "dev": "concurrently -k -n shared,server,app \"npm run dev -w @biblioteca/shared\" \"npm run dev:server\" \"npm run dev:app\"",
-    "dev:app": "npm run dev -w @biblioteca/app",
+    "dev": "concurrently -n server,app -c blue,yellow \"npm:dev:server\" \"npm:dev:app\"",
     "dev:server": "npm run dev -w @biblioteca/server",
-    "typecheck": "npm run typecheck --workspaces",
-    "build": "npm run typecheck && npm run build --workspaces",
-    "start:app": "npm run start -w @biblioteca/app",
-    "start:server": "npm run start -w @biblioteca/server"
+    "dev:app": "npm run dev -w @biblioteca/app",
+    "build": "npm run build -w @biblioteca/shared && npm run build -w @biblioteca/server && npm run build -w @biblioteca/app",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "start": "npm run start -w @biblioteca/server"
   },
   "devDependencies": {
-    "concurrently": "10.0.7",
-    "typescript": "7.0.2"
+    "concurrently": "^10.0.7",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

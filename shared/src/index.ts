@@ -1,2 +1,2 @@
-// Os tipos de domínio serão definidos na etapa 3, após aprovação do modelo.
-export {};
+// Pacote vazio: os tipos compartilhados serao definidos na Etapa 3 (Funcao 2).
+export {}
